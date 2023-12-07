@@ -9,6 +9,7 @@ import FollowRoutes from './follows/routes.js';
 import "dotenv/config";
 const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://127.0.0.1:27017/moviehub';
 // mongoose.connect('mongodb://127.0.0.1:27017/moviehub');
+console.log(CONNECTION_STRING);
 mongoose.connect(CONNECTION_STRING);
 const app = express();
 app.use(
