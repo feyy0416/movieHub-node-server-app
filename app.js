@@ -6,12 +6,13 @@ import session from "express-session";
 import CommentRoutes from './comments/routes.js';
 import LikeRoutes from './likes/routes.js';
 import FollowRoutes from './follows/routes.js';
-mongoose.connect("mongodb://127.0.0.1:27017/moviehub");
+const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://127.0.0.1:27017/movieHub';
+mongoose.connect(CONNECTION_STRING);
 const app = express();
 app.use(
     cors({
         credentials: true,
-        origin: "http://localhost:3000",
+        origin: process.env.FRONTEND_URL,
     })
 );
 app.use(express.json());
